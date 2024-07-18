@@ -22,14 +22,14 @@ log.txt
 /www
 /platforms
 /plugins
+/ios
+/android
 
 # Compiled output
 /dist
 /tmp
 /out-tsc
 /bazel-out
-/ios
-/android
 
 # Node
 /node_modules
@@ -45,7 +45,7 @@ yarn-error.log
 .settings/
 *.sublime-project
 *.sublime-workspace
-.vscode
+
 # Visual Studio Code
 .vscode/*
 !.vscode/settings.json
@@ -70,3 +70,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+_.git
+Aish.git

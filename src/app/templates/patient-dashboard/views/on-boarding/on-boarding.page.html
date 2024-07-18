@@ -1,0 +1,42 @@
+<div class="main-container" *ngIf="!authService.isLoggedIn()">
+  <ion-text class="courses-list-title font-largeTitle">Echoes</ion-text>
+  <ion-img src="assets/course_rive/spline.svg" class="bg-spline" alt="Spline background for blur effect"></ion-img>
+
+  <canvas riv="shapes" class="rive-bg" [width]="platform.width()" [height]="platform.height()" *ngIf="showRiveAsset">
+  </canvas>
+
+  <!-- Main Content -->
+  <div class="container-list">
+    <div #container class="content-container">
+      <div class="courses-list">
+        <div class="course-container" *ngFor="let course of courses;let last = last" [style.--course-bg]="course.color">
+          <!-- <ion-img class="course-img" [src]="course.image"></ion-img> -->
+          <div class="container">
+            <div class="image-container">
+              <img src={{course.image}} alt="Image Description">
+            </div>
+            <div class="text-container">
+              <h2>{{course.heading}}</h2>
+              <p>{{course.description}}</p>
+            </div>
+          </div>
+          <ion-buttons class="startCoursebtn" (click)="startCoursePressed()" *ngIf="last">
+            <div class="contained shadow"></div>
+            <div class="contained btnContent">
+              <ion-icon class="arrow" name="arrow-forward-outline"></ion-icon>
+              <ion-text>Login</ion-text>
+            </div>
+          </ion-buttons>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-modal #modal backdropDismiss="false" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+    <ng-template>
+      <div class="ion-page">
+        <cr-sign-in (onClose)="onSignInClose()"></cr-sign-in>
+      </div>
+    </ng-template>
+  </ion-modal>
+</div>
